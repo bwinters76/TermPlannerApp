@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TermPlannerApp.AddCourse"
+             Title="Add Course">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Course Name"
+                   x:Name="courseNameEntry"/>
+            <DatePicker x:Name="startDatePicker" />
+            <DatePicker x:Name="endDatePicker" />
+            <Picker x:Name="statusPicker" />
+            <Entry x:Name="instructorNameEntry" 
+                   Placeholder="Instructor Name"/>
+            <Entry x:Name="instructorEmailEntry"
+                   Placeholder="Instructor Email Address"/>
+            <Entry x:Name="instructorPhoneEntry"
+                   Placeholder="Instructor Phone"/>
+            <Entry x:Name="notesEntry"
+                   Placeholder="Notes" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Enable Notifications:"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+                <CheckBox x:Name="notificationsCheckBox" />
+            </StackLayout>
+            <Button x:Name="SaveCourseButton"
+                    Text="Save Course"
+                    BackgroundColor="LightSkyBlue"
+                    TextColor="White"
+                    Clicked="SaveCourseButton_OnClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

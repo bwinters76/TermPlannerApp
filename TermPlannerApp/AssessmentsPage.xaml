@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TermPlannerApp.AssessmentsPage"
+             Title="Assessment List">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     x:Name="AddAssessmentMenuItem"
+                     Clicked="AddAssessmentMenuItem_OnClicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="assessmentListView"
+                      RowHeight="85">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}"
+                                       FontSize="20"
+                                       Grid.Row="0"
+                                       Grid.ColumnSpan="2"/>
+                                <Button x:Name="editButton" 
+                                        Text="Edit"
+                                        CommandParameter="{Binding .}"
+                                        Clicked="EditButton_OnClicked"
+                                        HeightRequest="35"
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        BackgroundColor="LightSkyBlue"
+                                        TextColor="White"/>
+                                <Button x:Name="deleteButton" 
+                                        Text="Delete"
+                                        HeightRequest="35"
+                                        CommandParameter="{Binding .}"
+                                        Clicked="DeleteButton_OnClicked"
+                                        Grid.Row="1"
+                                        Grid.Column="3"
+                                        BackgroundColor="Tomato"
+                                        TextColor="White"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

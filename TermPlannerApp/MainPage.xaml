@@ -10,7 +10,55 @@
                      Clicked="NewTermItem_OnClicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
+        <ListView x:Name="termsListView"
+                  RowHeight="85">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
 
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0"
+                                   Grid.ColumnSpan ="2" 
+                                   FontSize="20"
+                                   Text="{Binding Name}"/>
+                            <Label Grid.Row="0" 
+                                   FontSize="20"
+                                   Grid.Column="2"
+                                    Text="{Binding Start, StringFormat='{0:MMM dd, yyyy}'}"/>
+                            <Button x:Name="editButton"
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="Edit"
+                                    CommandParameter="{Binding .}"
+                                    Clicked="EditButton_OnClicked"
+                                    BackgroundColor="LightSkyBlue"
+                                    TextColor="White"
+                                    HeightRequest="40"
+                                    WidthRequest="80"/>
+                            <Button x:Name="deleteButton"
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Text="Delete"
+                                    CommandParameter="{Binding .}"
+                                    Clicked="Delete_OnClicked" 
+                                    BackgroundColor="Tomato"
+                                    TextColor="White"
+                                    HeightRequest="40"
+                                    WidthRequest="80"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 
 </ContentPage>

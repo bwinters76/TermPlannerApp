@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TermPlannerApp.TermDetail"
+             Title="Term Detail">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     x:Name="AddCourseItem"
+                     Clicked="AddCourseItem_OnClicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="courseListView"
+                      RowHeight="85">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}"
+                                       FontSize="20"
+                                       Grid.Row="0"
+                                       Grid.ColumnSpan="2"/>
+                                <Button x:Name="assessmentButton"
+                                        Grid.Row="0"
+                                        Grid.Column="3"
+                                        HeightRequest="35"
+                                        Text="Assessments"
+                                        BackgroundColor="LightSkyBlue"
+                                        TextColor="White"
+                                        CommandParameter="{Binding .}"
+                                        Clicked="AssessmentButton_OnClicked"
+                                        ></Button>
+                                <Button x:Name="shareButton" 
+                                        Text="Share"
+                                        CommandParameter="{Binding .}"
+                                        Clicked="Share_OnClicked"
+                                        HeightRequest="35"
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        BackgroundColor="LightSkyBlue"
+                                        TextColor="White"/>
+                                <Button x:Name="editButton" 
+                                        Text="Edit"
+                                        CommandParameter="{Binding .}"
+                                        Clicked="Edit_OnClicked"
+                                        HeightRequest="35"
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        BackgroundColor="LightSkyBlue"
+                                        TextColor="White"/>
+                                <Button x:Name="deleteButton" 
+                                        Text="Delete"
+                                        HeightRequest="35"
+                                        CommandParameter="{Binding .}"
+                                        Clicked="Delete_OnClicked"
+                                        Grid.Row="1"
+                                        Grid.Column="3"
+                                        BackgroundColor="Tomato"
+                                        TextColor="White"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

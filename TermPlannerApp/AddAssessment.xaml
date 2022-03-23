@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TermPlannerApp.AddAssessment"
+             Title="Add Assessment">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="assessmentNameEntry"
+                   Placeholder="Assessment Name" />
+            <Label Text="Assessment Type"/>
+            <Picker x:Name="assessmentTypePicker" />
+            <Label Text="Start Date" />
+            <DatePicker x:Name="startPicker" />
+            <Label Text="End Date"/>
+            <DatePicker x:Name="endPicker"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Enable Notifications" />
+                <CheckBox x:Name="notificationsEnabledCheckBox"/>
+            </StackLayout>
+            <Button x:Name="Save" 
+                    Text="Save Assessment"
+                    BackgroundColor="LightSkyBlue"
+                    TextColor="White"
+                    Clicked="Save_OnClicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
